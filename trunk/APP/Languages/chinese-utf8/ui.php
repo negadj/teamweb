@@ -18,5 +18,5 @@ return array(
     'ui_g_help'  =>  '帮助',
     'ui_g_connect'  =>  '联系我们',
     
-    
+    'ui_p_jump_page' => '第 %u 页',
 );
