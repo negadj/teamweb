@@ -1,0 +1,53 @@
+﻿.tabpage, .tabpage li {
+    padding: 0px;
+    margin: 0px;
+    border: none
+}
+
+.tabpage {
+    height: 23px;
+    display: block;
+    width: 400px;
+}
+
+.tabpage li {
+    display: block;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding: 2px 20px;
+    text-align: center;
+    cursor:pointer;
+}
+
+.tabpage li.currenttab {
+    display: block;
+    color: red;
+    background-color: #fff;
+    border-right: 1px solid red;
+    border-left:1px solid red; 
+    border-top:1px solid red;
+    padding: 2px 20px;
+}
+
+.show, hidden {
+    width: 398px;
+    margin-top: 0px;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
+    border-top: 0px solid #fff;
+    text-align:left;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.con { 
+    padding:10px;
+}

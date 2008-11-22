@@ -1,0 +1,226 @@
+﻿body {
+    margin: 0px 100px;
+	font-size: 13px;
+	font-family: Verdana, Arial;
+	background: #fff;
+	/* color: darkblue; */
+}
+
+.home_header {
+    background-color: #3b5998; 
+    width: 790px; 
+    height: 32px;
+    padding-left: 10px;
+}
+
+.home_cont {
+    padding: 10px;
+    border: 0px solid #3b5998;
+}
+
+.home_left {
+    float: left; 
+    width: 65%;
+    border: 0px solid #3b5998;
+}
+
+.home_right {
+    float: right; 
+    width: 30%;
+    border: 0px solid #3b5998;
+}
+
+.infolist {
+    margin-top: 20px;
+    border-bottom: 1px solid #3b5998;
+}
+
+.infolist a{
+    color: #3B5998;
+    text-decoration: none;
+}
+
+.infolist a:hover{
+    color: #3b5998;
+    text-decoration: underline;
+    /* border: 1px dotted #FF0000; */
+}
+
+fieldset {
+    background-color: #F7F7F7;
+    padding: 5px;
+}
+
+.personalInfo {
+    border-top: 1px solid #3b5998;
+    margin-top: 10px;
+}
+
+.box_header {
+    height: 20px;
+    background-color: #F7F7F7;
+    display: block;
+}
+
+.home_bottom {
+    margin-top: 20px;
+    background-color: #0A0000;
+    padding: 5px;
+    border: 1px solid #B5B5B5;
+    width:790px;
+}
+
+.home_bottom a {
+    padding-right: 10px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.home_bottom a:hover {
+    font-weight: bold;
+	text-decoration: none;
+}
+
+.btn {
+	padding-right: 5px; 
+	padding-left: 5px; 
+	padding-bottom: 3px; 
+	padding-top: 3px;
+	
+	border-right: #6a6a6a 1px solid; 
+	border-top: #fff 1px solid; 
+	border-left: #fff 1px solid;
+	border-bottom: #6a6a6a 1px solid; 
+	
+    font-size: 14px; 
+	background: #3b5998; 
+	cursor: pointer; 
+	color: #fff; 
+	height: 23px
+}
+
+.home_header a {
+    padding-right: 9px; 
+    padding-left: 9px;
+    padding-bottom: 7px;
+    padding-top: 9px;
+    display: block; 
+    float: left; 
+    margin: 0px 1px 0px; 
+	color: #fff; 
+	text-decoration: none; 
+	/* oz-outline-style: none */
+}
+
+.home_header a:hover {
+    color: #3b5998;
+    font-weight: bold;
+    background-color: #d8dfea;
+	text-decoration: none;
+}
+
+/*post style*/
+.postblock {
+    width: 100%;
+}
+
+.postblock .userface IMG {
+	BORDER: #ddd 1px solid;
+	BACKGROUND: #eee; 
+	WIDTH: 50px; 
+	HEIGHT: 50px
+}
+.postblock .postuser {
+	PADDING-LEFT: 5px; 
+	BACKGROUND: #f7f7f7; 
+	PADDING-TOP: 2px; 
+	HEIGHT: 20px; 
+	COLOR: #6665cb;
+}
+
+.postblock .postcomment {
+	PADDING: 5px;
+	LINE-HEIGHT: 20px;
+	word-warp: break-word
+}
+
+.postblock .postdate {
+	PADDING-LEFT: 5px; 
+	COLOR: #989898;
+	border-bottom: 1px dashed #236B8E;
+}
+
+.postblock a {
+    color: #3b5998;
+    text-decoration: none;
+}
+
+/* Tab style */
+.tab {
+    padding-left: 5px;
+    margin: 0px;
+    border-bottom: 1px solid #D8DFEA; /* #D8DFEA; */
+    height: 23px;
+    display: block;
+}
+
+.tab li { 
+    padding: 0;
+    margin: 1px;
+    border: none;
+    display: block;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding: 2px 20px;
+    text-align: center;
+    cursor:pointer;
+    background-color: #D8DFEA;
+}
+
+.tab li.current {
+    display: block;
+    color: black;
+    background-color: #fff;
+    border-right: 1px solid #D8DFEA;
+    border-left: 1px solid #D8DFEA;
+    border-top:1px solid #D8DFEA; 
+    padding:2px 20px;
+}
+
+.tab li.hover {
+    display: block;
+    color: #fff;
+    background-color: #3b5998;
+    border-right: 1px solid #3b5998;
+    border-left: 1px solid #3b5998;
+    border-top:1px solid #3b5998; 
+    padding:2px 20px;
+}
+.hidden { 
+    display:none;
+}
+.show { 
+    display:block;
+}
+
+
+/* comment block start*/
+.PostBlock .UserFace IMG {
+	BORDER-RIGHT: #ddd 1px solid; BORDER-TOP: #ddd 1px solid; BACKGROUND: #eee; BORDER-LEFT: #ddd 1px solid; WIDTH: 55px; BORDER-BOTTOM: #ddd 1px solid; HEIGHT: 55px
+}
+.PostBlock .UserInfo {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 5px; FONT-SIZE: 13px; BACKGROUND: #f7f7f7; PADDING-BOTTOM: 0px; PADDING-TOP: 2px; HEIGHT: 20px; COLOR: #6665cb;
+}
+
+.PostBlock .UserFace IMG.FBC {
+	BORDER-RIGHT: #fff 0px solid; BORDER-TOP: #fff 0px solid; BACKGROUND: #fff; BORDER-LEFT: #fff 0px solid; WIDTH: 40px; BORDER-BOTTOM: #fff 0px solid; HEIGHT: 37px
+}
+.PostBlock .PostComments {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 13px; PADDING-BOTTOM: 5px; LINE-HEIGHT: 20px; PADDING-TOP: 10px; word-warp: break-word
+}
+
+.PostBlock .PostAction {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 5px; FONT-SIZE: 13px; PADDING-BOTTOM: 0px; COLOR: #989898; PADDING-TOP: 5px; border-bottom: 1px dashed #236B8E;
+}
+/* comment block end*/
