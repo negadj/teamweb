@@ -11,7 +11,7 @@
             <div class="title"><img class="image" src="images/arrow.bmp" /><?php echo $row['title']; ?></div>
             <span><?php echo $this->_formatPost($row['body']); ?></span>
             <div class="time"><?php echo $row['created']; ?></div>
-            <hr size="1" noshade style="{border:1px dotted #000000}" />
+            <hr size="1" noshade style="{border:1px dotted #A0A0A0}" />
         <?php $i++; endforeach; ?>
         <?php if ($pager->count > 0): ?>
         <table width="100%" border="0" cellpadding="2" cellspacing="0">
