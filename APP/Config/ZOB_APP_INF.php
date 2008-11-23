@@ -49,7 +49,8 @@ return array(
      * 指示可用的语言
      */
     'languages' => array(
-        'Simplified Chinese' => 'chinese-utf8',
+        'Chinese' => 'chinese-utf8',
+        'English' => 'english-usa',
     ),
 
     /**

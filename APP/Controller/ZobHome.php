@@ -53,6 +53,39 @@ class Controller_ZobHome extends Controller_ZobBase
         $this->_setBack();
         include(APP_DIR . '/ZobHome.php');
     }
+    
+    function actionTeam()
+    {
+        $this->_setBack();
+        include(APP_DIR . '/ZobTeam.php');
+    }
+    
+    function actionProjects()
+    {
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
+        FLEA::loadClass('FLEA_Helper_Pager');
+        $table =& $this->_modelPosts->getTable();
+        $pager =& new FLEA_Helper_Pager($table, $page, 20, null, 'project_id DESC');
+        $pk = $table->primaryKey;
+        $rowset = $pager->findAll();
+        
+        $this->_setBack();
+        include(APP_DIR . '/ZobProjects.php');
+    }
+
+    function actionMembers()
+    {
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
+        FLEA::loadClass('FLEA_Helper_Pager');
+        $table =& $this->_modelMembers->getTable();
+        $pager =& new FLEA_Helper_Pager($table, $page, 20, null, 'member_id DESC');
+        $pk = $table->primaryKey;
+        $rowset = $pager->findAll();
+        
+        $this->_setBack();
+        include(APP_DIR . '/ZobMembers.php');
+    }
+
 
     /**
      * 显示个人主页
