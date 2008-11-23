@@ -14,9 +14,8 @@ return array(
     'ui_g_team'  =>  '团队介绍',
     'ui_g_projects'  =>  '开发项目',
     'ui_g_members'  =>  '成员介绍',
-    'ui_g_about'  =>  '关于',
+    'ui_g_about'  =>  '联系我们',
     'ui_g_help'  =>  '帮助',
-    'ui_g_connect'  =>  '联系我们',
     'ui_g_language'  =>  '语言',
     
     'ui_p_jump_page' => '第 %u 页',
@@ -31,5 +30,9 @@ return array(
     'ui_t_team_members' => '请查看成员介绍，获取成员详细信息',
     
     'ui_p_status' => '状 态：',
+    
+    'ui_a_connection' => '联系方式',
+    'ui_a_address' => '地址：上海市漕河泾开发区桂平路481号18号楼3楼东侧',
+    'ui_a_phone' => '电话：021-',
     
 );

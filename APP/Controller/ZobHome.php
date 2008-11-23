@@ -7,10 +7,10 @@ FLEA::loadClass('Controller_ZobBase');
 /**
  * 实现首页面的显示
  *
- * @package OfficeBoard
+ * @package TeamWeb
  * @subpackage Controller
  * @author  Zhou Yuhui (xuchangyuhui@sohu.com)
- * @version 1.0, 2008-09-19
+ * @version 1.0, 2008-11-23
  */
 class Controller_ZobHome extends Controller_ZobBase
 {
@@ -102,53 +102,12 @@ class Controller_ZobHome extends Controller_ZobBase
         $this->_setBack();
         include(APP_DIR . '/ZobMembers.php');
     }
-
-
-    /**
-     * 显示个人主页
-     */
-    function actionPersonal() {
-        $dispatcher =& $this->_getDispatcher();
-        $user = $dispatcher->getUser();
-        
-        __TRY();
-        $member = & $this->_modelMembers->getMember($user['ID']);
-        $ex = __CATCH();
-        $errorMessage = "";
-        if (__IS_EXCEPTION($ex)) {
-            $errorMessage = $ex->getMessage();
-        }
-        
-        include(APP_DIR . '/ZobIndex.php');
+    
+    function actionAbout() {
+        $this->_setBack();
+        include(APP_DIR . '/ZobAbout.php');
     }
-
-    /**
-     * 显示左侧菜单
-     */
-    function actionSidebar() {
-        // 首先定义菜单
-        $catalog = FLEA::loadFile('Config_Menu.php');
-        // 借助 FLEA_Dispatcher_Auth 对用户角色和控制器 ACT 进行验证
-        $dispatcher =& $this->_getDispatcher();
-        include(APP_DIR . '/ZobSidebar.php');
-    }
-
-    /**
-     * 显示欢迎信息
-     */
-    function actionWelcome() {
-        $dispatcher =& FLEA::getSingleton(FLEA::getAppInf('dispatcher'));
-        /* @var $dispatcher FLEA_Dispatcher_Auth */
-        if ($dispatcher->check('ZobBoard', 'phpinfo') &&
-            function_exists('phpinfo'))
-        {
-            $enablePhpinfo = true;
-        } else {
-            $enablePhpinfo = false;
-        }
-        include(APP_DIR . '/ZobWelcome.php');
-    }
-
+    
     /**
      * 设置当前界面语言
      */
