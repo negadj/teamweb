@@ -1,14 +1,7 @@
 <?php include 'ZobHeader.php' ?>
 <script language="javascript" type="text/javascript">
-    function mouseOver(li) {
-        li.className = "hover";
-    } 
-    function mouseOut(li) {
-        li.className = "current";
-    }     
-    
     function fnOnPageChanged(page) {
-    	var url = '<?php echo $this->_url(null); ?>&page=' + page;
+    	var url = '<?php echo $this->_url('projects'); ?>&page=' + page;
     	document.location.href = url;
     }
 </script>

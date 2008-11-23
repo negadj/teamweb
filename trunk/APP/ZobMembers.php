@@ -1,7 +1,7 @@
 <?php include 'ZobHeader.php' ?>
 <script language="javascript" type="text/javascript">
     function fnOnPageChanged(page) {
-    	var url = '<?php echo $this->_url(null); ?>&page=' + page;
+    	var url = '<?php echo $this->_url('members'); ?>&page=' + page;
     	document.location.href = url;
     }
 </script>
@@ -14,10 +14,10 @@
                   $marginleft = $j*160;
                   if($j > 2) $marginleft = ($j - 3)*160;
                   $margintop = 0;
-                  if($j % 3 != 0) $margintop = -70; ?>
+                  if($j % 3 != 0) $margintop = -75; ?>
             <div class="headerimg" 
                  style="margin-left:<?php echo $marginleft; ?>px; margin-top: <?php echo $margintop; ?>px;">
-                <img style={padding-top: 2px;} height=55 src="upload/defaulthead.jpg" width=55 border=0></div>
+                <img height=55 src="upload/defaulthead.jpg" width=55 border=0></div>
             <div style="margin-left:<?php echo $marginleft + 90; ?>px; margin-top: -80px;">
                 <p><a class=sl href="">
                 <?php echo $rowset[$j]['name']; ?></a></p></div><br />
