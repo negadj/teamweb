@@ -138,13 +138,18 @@
     display:block;
 }
 
-.post_block .title {
+.title {
 	background: url(../images/title.gif) repeat-x; 
+	filter: progid:DXImageTransform.Microsoft.Chroma(color= #ffffff); 
 	color: darkblue;
 	height: 20px;
 }
 
-.post_block .time {
+.title .image {
+    filter : progid:DXImageTransform.Microsoft.Chroma( color= #ffffff); 
+}
+
+.time {
     text-align: right;
 	color: #3b5998;
 }
