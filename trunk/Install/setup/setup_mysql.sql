@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
-  `admin_id` int(1) unsigned NOT NULL,
+  `admin_id` int(1) NOT NULL auto_increment,
   `username` varchar(24) NOT NULL default '',
   `password` varchar(48) DEFAULT NULL,
   PRIMARY KEY  (`admin_id`),
@@ -11,7 +11,7 @@ INSERT INTO `admin` (`admin_id`, `username`, `password`) VALUES('1', 'admin', '$
 
 DROP TABLE IF EXISTS `members`;
 CREATE TABLE `members` (
-  `member_id` int(5) unsigned NOT NULL,
+  `member_id` int(5) NOT NULL auto_increment,
   `name` varchar(24) NOT NULL,
   `sex` varchar(4) NOT NULL default '男',
   `hobbies` text,
@@ -26,7 +26,7 @@ CREATE TABLE `members` (
 
 DROP TABLE IF EXISTS `projects`;
 CREATE TABLE `projects` (
-  `project_id` int(5) unsigned NOT NULL,
+  `project_id` int(5) NOT NULL auto_increment,
   `name` varchar(40) NOT NULL,
   `introduction` text,
   `status` varchar(12) NOT NULL default '进行中',
@@ -43,5 +43,5 @@ CREATE TABLE IF NOT EXISTS `posts` (
   PRIMARY KEY  (`post_id`)
 )ENGINE=MyISAM;
 
-INSERT INTO `posts` (`post_id`, `title`, `body`, `created`, `updated`) VALUES(1, '欢迎你', '欢迎你访问', '2008-11-21 21:11:37', '2008-11-21 09:11:37');
+INSERT INTO `posts` (`title`, `body`, `created`, `updated`) VALUES('欢迎你', '欢迎你访问', '2008-11-21 21:11:37', '2008-11-21 09:11:37');
 

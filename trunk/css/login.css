@@ -42,7 +42,6 @@
 
 .infobox {
     background: url(../images/infobox.gif) no-repeat left top;
-    filter : progid:DXImageTransform.Microsoft.Chroma( color= #ffffff); 
     width: 365px;
     height: 48px;
     color: red;

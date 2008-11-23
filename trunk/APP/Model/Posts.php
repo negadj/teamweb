@@ -11,6 +11,13 @@
 class Model_Posts
 {
     /**
+     * 提供贴吧信息数据库访问服务的对象
+     *
+     * @var Table_Posts
+     */
+    var $_tbPosts;
+    
+    /**
      * 构造函数
      *
      * @return Model_Posts
@@ -34,16 +41,16 @@ class Model_Posts
     /**
      * 保存贴吧信息
      *
-     * @param array $comment
+     * @param array $post
      *
      * @return boolean
      */
-    function savePost($comment) {
-        if (isset($comment['post_id']) && (int)$comment['post_id'] == 0) {
-            unset($comment['post_id']);
+    function savePost($post) {
+        if (isset($post['post_id']) && (int)$post['post_id'] == 0) {
+            unset($post['post_id']);
         }
 
-        return $this->_tbPosts->save($comment);
+        return $this->_tbPosts->save($post);
     }
 
     /**

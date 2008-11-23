@@ -26,6 +26,13 @@ class Controller_ZobHome extends Controller_ZobBase
      */
     var $_modelPosts;
     
+    /**
+     * Model_Projects 对象
+     *
+     * @var Model_Projects
+     */
+    var $_modelProjects;
+    
     
     /**
      * 构造函数
@@ -36,10 +43,11 @@ class Controller_ZobHome extends Controller_ZobBase
         parent::Controller_ZobBase();
         $this->_modelMembers =& FLEA::getSingleton('Model_Members');
         $this->_modelPosts =& FLEA::getSingleton('Model_Posts');
+        $this->_modelProjects =& FLEA::getSingleton('Model_Projects');
     }
     
     /**
-     * 显示首页
+     * 显示首页、新闻信息
      */
     function actionIndex() {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
@@ -54,17 +62,23 @@ class Controller_ZobHome extends Controller_ZobBase
         include(APP_DIR . '/ZobHome.php');
     }
     
+    /**
+     * 显示组介绍
+     */
     function actionTeam()
     {
         $this->_setBack();
         include(APP_DIR . '/ZobTeam.php');
     }
     
+    /**
+     * 显示项目信息
+     */
     function actionProjects()
     {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
         FLEA::loadClass('FLEA_Helper_Pager');
-        $table =& $this->_modelPosts->getTable();
+        $table =& $this->_modelProjects->getTable();
         $pager =& new FLEA_Helper_Pager($table, $page, 20, null, 'project_id DESC');
         $pk = $table->primaryKey;
         $rowset = $pager->findAll();
@@ -73,6 +87,9 @@ class Controller_ZobHome extends Controller_ZobBase
         include(APP_DIR . '/ZobProjects.php');
     }
 
+    /**
+     * 显示成员信息
+     */
     function actionMembers()
     {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
