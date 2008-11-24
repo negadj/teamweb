@@ -38,6 +38,14 @@ return array(
         'allow' => RBAC_HAS_ROLE,
     ),
     
+    
+    /**
+     * ZobProject 控制器
+     */
+    'ZobProject' => array(
+        'allow' => RBAC_HAS_ROLE,
+    ),
+    
     /**
      * ZobAdmin 控制器
      */
