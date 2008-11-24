@@ -43,7 +43,7 @@ function fnOnSubmit(form) {
     <input name="Save" class="btn" type="submit" id="Save" value="<?php echo h(_T('ui_g_submit')); ?>" />
 	&nbsp;&nbsp;
     <input name="Cancel" class="btn" type="button" id="Cancel" value="<?php echo h(_T('ui_g_cancel')); ?>" onclick="fnOnBack();" />
-    <input name="<?php echo $pk; ?>" type="hidden" id="<?php echo $pk; ?>" value="<?php echo $post[$pk]; ?>" />
+    <input name="post_id" type="hidden" id="post_id" value="<?php echo $post['post_id']; ?>" />
   </form>
 </div>
 </body>

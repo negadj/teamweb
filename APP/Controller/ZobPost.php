@@ -40,7 +40,7 @@ class Controller_ZobPost extends Controller_ZobBase
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
         FLEA::loadClass('FLEA_Helper_Pager');
         $table =& $this->_modelPosts->getTable();
-        $pager =& new FLEA_Helper_Pager($table, $page, 20, null, 'CommentID DESC');
+        $pager =& new FLEA_Helper_Pager($table, $page, 20, null, 'post_id DESC');
         $pk = $table->primaryKey;
         $rowset = $pager->findAll();
 
@@ -56,16 +56,34 @@ class Controller_ZobPost extends Controller_ZobBase
         $table =& $this->_modelPosts->getTable();
         $post = $this->_prepareData($table->meta);
 
-        $pk = $table->primaryKey;
-        
         $this->_editComment($post);
+    }
+    
+    /**
+     * 删除帖子
+     * 
+     * @return
+     */
+    function actionDelete() {
+        $this->_modelPosts->removePost($_GET['id']);
+        $this->_goBack();
+    }
+
+    /**
+     * 编辑帖子
+     * 
+     * @return
+     */
+    function actionEdit() {        
+        $post = & $this->_modelPosts->getPost($_GET['id'], true);
+        
+        $this->_editComment($post, 'save');
     }
     
     /**
      * 显示帖子编辑页
      */
     function _editComment($post, $errorMessage = '') {
-        $pk = $post['post_id'];
         
         include(APP_DIR . '/ZobPostAdd.php');
     }
@@ -76,6 +94,7 @@ class Controller_ZobPost extends Controller_ZobBase
     function actionSave()
     {
         $post = array(
+            'post_id'   => $_POST['post_id'],
             'title'     => $_POST['title'],
             'body'      => strip_tags($_POST['body']),
         );
@@ -87,23 +106,6 @@ class Controller_ZobPost extends Controller_ZobBase
             return $this->_editComment($post, $ex->getMessage());
         }
         js_alert(_T('ui_c_success_post'), '', $this->_url('index'));
-    }
-
-    /**
-     * 删除帖子
-     */
-    function actionDelete()
-    {
-        /**
-         * 通过 $_GET['id'] 获取要删除帖子的ID
-         */
-        $id = (int)$_GET['id'];
-        /**
-         * 删除 $_GET['id'] 的帖子
-         */
-        $post = $this->_modelPosts->removeByPkv($id);
-
-        redirect(url('Post', 'Index'));
     }
     
     /**
