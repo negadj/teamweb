@@ -7,10 +7,10 @@ FLEA::loadClass('Controller_ZobBase');
 /**
  * 定义 Controller_ZobMember 类， 实现成员管理，信息显示等
  *
- * @package OfficeBoard
+ * @package TeamWeb
  * @subpackage Controller
  * @author  Zhou Yuhui (xuchangyuhui@sohu.com)
- * @version 1.0, 2008-09-19
+ * @version 1.0, 2008-11-24
  */
 class Controller_ZobMember extends Controller_ZobBase
 {
@@ -55,7 +55,7 @@ class Controller_ZobMember extends Controller_ZobBase
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
         FLEA::loadClass('FLEA_Helper_Pager');
         $table =& $this->_modelMembers->getTable();
-        $pager =& new FLEA_Helper_Pager($table, $page, 20, '', 'MemberID');
+        $pager =& new FLEA_Helper_Pager($table, $page, 20, '', 'member_id');
         $pk = $table->primaryKey;
         $rowset = $pager->findAll();
 
@@ -74,7 +74,7 @@ class Controller_ZobMember extends Controller_ZobBase
         $table =& $this->_modelMembers->getTable();
         $member = $this->_prepareData($table->meta);
     
-        $this->_editMember($member, 'create');
+        $this->_editMember($member);
     }
     
     /**
@@ -95,7 +95,7 @@ class Controller_ZobMember extends Controller_ZobBase
     function actionEdit() {        
         $member = & $this->_modelMembers->getMember($_GET['id'], true);
         
-        $this->_editMember($member, 'save');
+        $this->_editMember($member);
     }
     
     /**
@@ -104,18 +104,7 @@ class Controller_ZobMember extends Controller_ZobBase
      * @param array $product
      * @param string $errorMessage
      */
-    function _editMember($member, $action, $errorMessage = "") {
-        $tbRoles =& FLEA::getSingleton('Table_Roles');
-        $roles = $tbRoles->findAll();
-        if (count($roles) == 0) {
-            js_alert(_T('ui_p_create_class_first'), '');
-        }
-        
-        if (isset($member['roles']) && is_array($member['roles'])) {
-            FLEA::loadFile('FLEA_Helper_Array.php', true);
-            $member['roles'] = array_col_values($member['roles'], 'RoleID');
-        }
-
+    function _editMember($member, $errorMessage = "") {
         include(APP_DIR . '/ZobMemberEdit.php');
     }
     /**
@@ -123,35 +112,13 @@ class Controller_ZobMember extends Controller_ZobBase
      */
     function actionSave() {
         __TRY();
-        //foreach ($_POST['roles'] as $name => $value) {
-        //    echo $name . " " . $value . "<br>";
-        //}
-        $this->_modelMembers->updateMember($_POST);
+        $this->_modelMembers->saveMember($_POST);
         $ex = __CATCH();
         if (__IS_EXCEPTION($ex)) {
-            return $this->_editMember($_POST, 'save', $ex->getMessage());
+            return $this->_editMember($_POST, $ex->getMessage());
         }
 
-        js_alert(_T('ui_m_member_success'), '', $this->_url('list'));
-        //$this->_goBack();
-    }
-    
-    /**
-     * 创建成员信息
-     */
-    function actionCreate() {
-        __TRY();
-
-        $this->_modelMembers->createMember($_POST);
-        $ex = __CATCH();
-        if (__IS_EXCEPTION($ex)) {
-            //echo $ex->getMessage();
-            return $this->_editMember($_POST, 'create', $ex->getMessage());
-        }
-        
-        js_alert(_T('ui_m_member_success'), '', $this->_url('list'));
-
-        //$this->_goBack();
+        js_alert(_T('ui_m_member_success'), '', $this->_url('index'));
     }
 }
 

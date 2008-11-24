@@ -38,53 +38,44 @@ function fnOnSubmit(form) {
 </head>
 <body>
 <div id="content">
-  <h3><?php if($member['MemberID'] == 0) {echo h(_T('ui_m_addmember'));} else {echo h(_T('ui_m_editmember'));} ?></h3>
-  <div class="description"><?php if($member['MemberID'] == 0) {echo t(_T('ui_m_addmember_description'));} 
-                             else {echo t(_T('ui_m_editmember_description'));}?></div>
+  <h3><?php if($member['member_id'] == 0) {echo h(_T('ui_m_addmember'));} else {echo h(_T('ui_m_editmember'));} ?></h3>
   <br />
   <p class="error-msg"><?php echo $errorMessage; ?></p>
-  <form action="<?php echo $this->_url($action); ?>" method="post" name="form1" id="form1" onsubmit="return fnOnSubmit(this);">
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_memid')); ?>:</strong>
-    <?php html_textbox('MemberID', $member['MemberID'], 10, 10); ?>
+  <form action="<?php echo $this->_url('save'); ?>" method="post" name="form1" id="form1" 
+        onsubmit="return fnOnSubmit(this);">
+	<br />
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_name')); ?>:</strong>
+    <?php html_textbox('name', $member['name'], 30, 24); ?>
 	<br />
 	<br />
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_loginname')); ?>:</strong>
-    <?php html_textbox('LoginName', $member['LoginName'], 30, 24); ?>
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_sex')); ?>:</strong>
+    <?php html_dropdown_list('sex', array(h(_T('ui_m_male')), h(_T('ui_m_female'))), $member['sex']); ?>
 	<br />
 	<br />
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_p_sex')); ?>:</strong>
-    <?php html_dropdown_list('Sex', array(h(_T('ui_p_male')), h(_T('ui_p_female'))), $member['Sex']); ?>
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_university')); ?>:</strong>
+    <?php html_textbox('university', $member['university'], 30, 24); ?>
 	<br />
 	<br />
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_p_email')); ?>:</strong>
-    <?php html_textbox('Email', $member['Email'], 40, 80); ?>
-	<br />	
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_experience')); ?>:</strong>
+    <?php html_textbox('experiences', $member['experiences'], 30, 24); ?>
 	<br />
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_roles')); ?>:</strong><br>
-    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <select name="roles[]" size="8" multiple="multiple" id="roles[]">
-    	<?php
-    	if (isset($member['roles'])) {
-    		$selectedRoles = (array)$member['roles'];
-    	} else {
-    		$selectedRoles = array();
-    	}
-    	foreach ($roles as $role):
-            $roleName = $role['Rolename'];
-    	?>
-    	<option value="<?php echo $role['RoleID']; ?>"<?php if (in_array($role['RoleID'], $selectedRoles)): ?>selected<?php endif; ?>>
-    	    <?php echo t($roleName); ?></option>
-    	<?php endforeach; ?>
-    </select>
+	<br />
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_hobby')); ?></strong><br />
+    <?php html_textarea('hobbies', $member['hobbies'], 60, 5); ?>
+	<br />
+	<br />
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_skill')); ?></strong><br />
+    <?php html_textarea('skills', $member['skills'], 60, 5); ?>
+	<br />
+	<br />
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_introduction')); ?></strong><br />
+    <?php html_textarea('introduction', $member['introduction'], 60, 5); ?>
 	<br />
     <br />
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_leader')); ?>:</strong>
-    <?php html_textbox('LeaderID', $member['LeaderID'], 10, 10); ?>
-	<br />
-    <br />
-    <input name="Save" type="submit" id="Save" value="<?php echo h(_T('ui_g_submit')); ?>" />
+    <input class="btn" name="Save" type="submit" id="Save" value="<?php echo h(_T('ui_g_create')); ?>" />
 	&nbsp;&nbsp;
-    <input name="Cancel" type="button" id="Cancel" value="<?php echo h(_T('ui_g_cancel')); ?>" onclick="fnOnBack();" />
+    <input class="btn" name="Cancel" type="button" id="Cancel" value="<?php echo h(_T('ui_g_cancel')); ?>" onclick="fnOnBack();" />
+    <input name="member_id" type="hidden" id="member_id" value="<?php echo $member['member_id']; ?>" />
   </form>
 </div>
 </body>

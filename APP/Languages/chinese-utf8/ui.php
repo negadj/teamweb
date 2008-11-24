@@ -24,6 +24,7 @@ return array(
     'ui_g_operation' => '操作',
     'ui_g_operation_edit' => '编辑',
     'ui_g_operation_remove' => '删除',
+    'ui_g_create' => ' 创 建 ',
     
     'ui_p_jump_page' => '第 %u 页',
     'ui_p_page_info' => '共有信息 <strong>%u</strong> 条，符合检索条件的共有 <strong>%u</strong> 条记录，分为 <strong>%u</strong> 页显示，当前查看的是第 <strong>%u</strong> 页',
@@ -64,4 +65,18 @@ return array(
     'ui_clist_title' => '主题',
     'ui_c_body' => '内容：',
     'ui_c_success_post' => '信息发布成功！',
+    
+    'ui_m_addmember' => '添加成员',
+    'ui_m_editmember' => '编辑成员',
+    'ui_m_name' => '姓名',
+    'ui_m_university' => '大学',
+    'ui_m_sex' => '性别',
+    'ui_m_experience' => '经验',
+    'ui_m_hobby' => '兴趣爱好',
+    'ui_m_skill' => '专业技术',
+    'ui_m_introduction' => '个人简介',
+    'ui_m_male' => '男',
+    'ui_m_female' => '女',
+    'ui_m_member_success' => '成功保存成员信息。',
+    'ui_mlist_title' => '成员列表',
 );
