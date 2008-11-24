@@ -8,20 +8,21 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div style="width: 800px; padding: 15px;">
-    <div style="width:200px; text-align: center;"></dir><img src="images/logo.bmp" width="180px"/></div>
-    <div style="float:left; width:200px; text-align:center;  
-                margin-top: 20px;">
+<div style="width: 780px; padding: 10px;">
+     <div>
+         <img src="images/logo.bmp" width="180px"/><br /><br /></div>
+    <div style="float:left; width:200px; text-align: center;">
         <br /><br />
-        <p><strong color=blue><?php echo h(_T('ui_g_about')); ?></strong></p>
-        <p><a href="<?php echo url('ZobHome', 'index'); ?>"><?php echo h(_T('ui_g_home')); ?></a></p>
-    </div>
+        <div>
+            <p><strong color=blue><?php echo h(_T('ui_g_about')); ?></strong></p>
+            <p><a href="<?php echo url('ZobHome', 'index'); ?>"><?php echo h(_T('ui_g_home')); ?></a></p>
+        </div></div>
     
-    <div style="float:right; width:550px; padding-left:20px; margin-top: 20px; border-left:1px solid darkblue; ">
+    <div style="float:right; width:560px; padding-left:10px; border-left:1px solid darkblue;  ">
         <p><?php echo h(_T('ui_t_team_introduction')); ?></p>
         <strong><?php echo h(_T('ui_a_connection')); ?></strong>
         <p><?php echo h(_T('ui_a_address')). "<br />" . h(_T('ui_a_phone')); ?></p>
-        <p><img src="images/481map.jpg"/></p>
+        <p><img src="images/481map.jpg" width=550px/></p>
     </div>
 </div>
 </body>
