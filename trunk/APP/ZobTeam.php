@@ -3,7 +3,8 @@
     <div id=home_left class="home_left">
         <p><?php echo _T('ui_t_team_introduction'); ?></p>
         <img src="images/about.bmp"/>
-        <p><?php echo _T('ui_t_team_boss'); ?></p>
+        <p><?php echo _T('ui_t_team_boss'); ?><br />
+           <img src="images/manager.jpg" width="550"/></p>
         <p><?php echo _T('ui_t_team_pm'); ?></p>
         <p><?php echo _T('ui_t_team_ocean'); ?><br />
            <img src="images/ocean.jpg" width="550"/></p>
