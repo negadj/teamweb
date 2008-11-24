@@ -19,7 +19,7 @@
                  style="margin-left:<?php echo $marginleft; ?>px; margin-top: <?php echo $margintop; ?>px;">
                 <img height=55 src="upload/defaulthead.jpg" width=55 border=0></div>
             <div style="margin-left:<?php echo $marginleft + 90; ?>px; margin-top: -80px;">
-                <p><a class=sl href="">
+                <p><a href="<?php echo url('ZobMember', 'show', array('id' => $rowset[$j]['member_id'])); ?>">
                 <?php echo $rowset[$j]['name']; ?></a></p></div><br />
             <?php endfor; ?>
             <hr size="1" noshade style="{border:1px dotted #A0A0A0}" />

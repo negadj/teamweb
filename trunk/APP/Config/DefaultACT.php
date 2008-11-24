@@ -57,7 +57,10 @@ return array(
      * ZobMember 控制器
      */
     'ZobMember' => array(
-        'allow' => RBAC_HAS_ROLE,
+        'allow' => RBAC_EVERYONE,
+        'action' => array(
+            'allow' => RBAC_HAS_ROLE,
+        )
     ),
 );
 

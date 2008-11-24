@@ -33,8 +33,8 @@ class Controller_ZobMember extends Controller_ZobBase
      * 显示指定的成员信息
      * 
      */
-    function actionShowMember() {
-        $memberID = $_GET["id"]; // $memberID = $_POST["id"]; 
+    function actionShow() {
+        $memberID = $_GET["id"]; 
         
         __TRY();
         $member = & $this->_modelMembers->getMember($memberID);
@@ -45,7 +45,6 @@ class Controller_ZobMember extends Controller_ZobBase
         }
         
         include(APP_DIR . '/ZobMemberShow.php');
-        //js_alert(_T('ui_u_change_password_successed'), '', url('ZobBoard', 'welcome'));
     }
     
     /**
