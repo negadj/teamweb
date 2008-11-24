@@ -51,7 +51,7 @@ class Controller_ZobMember extends Controller_ZobBase
     /**
      * 列出所有的成员
      */ 
-    function actionList() {        
+    function actionIndex() {        
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
         FLEA::loadClass('FLEA_Helper_Pager');
         $table =& $this->_modelMembers->getTable();
