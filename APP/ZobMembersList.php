@@ -36,7 +36,7 @@ function fnOnPageChanged(page) {
      <td align="center" nowrap="nowrap"><?php echo h($row['university']); ?></td>
      <td align="center" nowrap="nowrap"><?php echo h($row['experiences']); ?></td>
      <td align="center" nowrap="nowrap">
-	  <a href="<?php echo $this->_url('edit', $rowid); ?>" ><?php echo t(_T('ui_g_operation_edit')); ?></a>&nbsp;/&nbsp;<a href="<?php echo $this->_url('delete', $rowid); ?>" onClick="return(confirm('<?php echo t(_T('ui_p_delete_promption')); ?>'));"><?php echo t(_T('ui_g_operation_remove')); ?></a>
+	  <a href="<?php echo $this->_url('edit', $rowid); ?>" ><?php echo t(_T('ui_g_operation_edit')); ?></a>&nbsp;/&nbsp;<a href="<?php echo $this->_url('delete', $rowid); ?>" ><?php echo t(_T('ui_g_operation_remove')); ?></a>
 	  </td>
     </tr>
     <?php $i++; endforeach; ?>

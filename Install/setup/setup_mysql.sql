@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS `members`;
 CREATE TABLE `members` (
   `member_id` int(5) NOT NULL auto_increment,
   `name` varchar(24) NOT NULL,
-  `sex` varchar(4) NOT NULL default '男',
+  `sex` char(1) NOT NULL default '0',
   `hobbies` text,
   `skills` text,
   `university` varchar(40) NOT NULL default ' ',
