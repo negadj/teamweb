@@ -39,11 +39,8 @@ function fnOnSubmit(form) {
 <body>
 <div id="content">
   <h3><?php if($member['member_id'] == 0) {echo h(_T('ui_m_addmember'));} else {echo h(_T('ui_m_editmember'));} ?></h3>
-  <br />
-  <p class="error-msg"><?php echo $errorMessage; ?></p>
   <form action="<?php echo $this->_url('save'); ?>" method="post" name="form1" id="form1" 
         onsubmit="return fnOnSubmit(this);">
-	<br />
     <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_name')); ?>:</strong>
     <?php html_textbox('name', $member['name'], 30, 24); ?>
 	<br />
@@ -72,7 +69,7 @@ function fnOnSubmit(form) {
     <?php html_textarea('introduction', $member['introduction'], 60, 5); ?>
 	<br />
     <br />
-    <input class="btn" name="Save" type="submit" id="Save" value="<?php echo h(_T('ui_g_create')); ?>" />
+    <input class="btn" name="Save" type="submit" id="Save" value="<?php echo h(_T('ui_g_save')); ?>" />
 	&nbsp;&nbsp;
     <input class="btn" name="Cancel" type="button" id="Cancel" value="<?php echo h(_T('ui_g_cancel')); ?>" onclick="fnOnBack();" />
     <input name="member_id" type="hidden" id="member_id" value="<?php echo $member['member_id']; ?>" />

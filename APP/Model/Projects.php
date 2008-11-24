@@ -45,7 +45,7 @@ class Model_Projects
      *
      * @return boolean
      */
-    function savePost($project) {
+    function saveProject($project) {
         if (isset($project['project_id']) && (int)$project['project_id'] == 0) {
             unset($project['project_id']);
         }
@@ -60,7 +60,7 @@ class Model_Projects
      *
      * @return boolean
      */
-    function removePost($projectId) {
+    function removeProject($projectId) {
         $projectId = (int)$projectId;
 
         $project = $this->_tbProjects->find($projectId);
