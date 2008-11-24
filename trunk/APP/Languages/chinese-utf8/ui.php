@@ -21,8 +21,12 @@ return array(
     'ui_g_login' => ' 登 陆 ',
     'ui_g_submit' => ' 提 交 ',
     'ui_g_cancel' => ' 取 消 ',
+    'ui_g_operation' => '操作',
+    'ui_g_operation_edit' => '编辑',
+    'ui_g_operation_remove' => '删除',
     
     'ui_p_jump_page' => '第 %u 页',
+    'ui_p_page_info' => '共有信息 <strong>%u</strong> 条，符合检索条件的共有 <strong>%u</strong> 条记录，分为 <strong>%u</strong> 页显示，当前查看的是第 <strong>%u</strong> 页',
     
     'ui_t_team_introduction' => 'Cosmos Plugin小组隶属于理光图像技术(上海)有限公司开发二部开发九课，组建于2008年4月。
     目的是成为一支具有强大战斗力、具有较强竞争性的团队以承接COSMOS相关的业务。经过了08年4月到08年7月的OJT阶段，
@@ -55,7 +59,9 @@ return array(
     'ui_m_manage_catalog' => 'Team管理',
     
     'ui_c_post' => '信息发布',
+    'ui_clist_page' => '信息列表',
     'ui_c_title' => '主题：',
+    'ui_clist_title' => '主题',
     'ui_c_body' => '内容：',
     'ui_c_success_post' => '信息发布成功！',
 );
