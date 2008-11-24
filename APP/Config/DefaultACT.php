@@ -31,28 +31,25 @@ return array(
         'allow' => RBAC_EVERYONE,
     ),
     
-     /**
+    /**
      * ZobPost 控制器
      */
     'ZobPost' => array(
         'allow' => RBAC_HAS_ROLE,
     ),
-
+    
+    /**
+     * ZobAdmin 控制器
+     */
+    'ZobAdmin' => array(
+        'allow' => RBAC_HAS_ROLE,
+    ),
     
     /**
      * ZobMember 控制器
      */
     'ZobMember' => array(
         'allow' => RBAC_HAS_ROLE,
-
-        'actions' => array(
-           'list' => array(
-                'allow' => 'SYSTEM_ADMIN',
-            ),
-           'add' => array(
-                'allow' => 'SYSTEM_ADMIN',
-            ),
-        ),
     ),
 );
 
