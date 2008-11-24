@@ -77,7 +77,7 @@ class Controller_ZobPost extends Controller_ZobBase
     function actionEdit() {        
         $post = & $this->_modelPosts->getPost($_GET['id'], true);
         
-        $this->_editComment($post, 'save');
+        $this->_editComment($post);
     }
     
     /**

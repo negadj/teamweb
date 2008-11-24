@@ -17,18 +17,20 @@ function fnOnPageChanged(page) {
 </head>
 <body>
 <div id="content">
-  <h3><?php echo t(_T('ui_clist_page')); ?></h3>
+  <h3><?php echo t(_T('ui_plist_title')); ?></h3>
   <br />
   <table >
     <tr>
       <th align="center" nowrap="nowrap" width=10%>ID</th>
-      <th align="left" nowrap="nowrap"><?php echo t(_T('ui_clist_title')); ?></th>
+      <th align="left" nowrap="nowrap"><?php echo t(_T('ui_p_name')); ?></th>
+      <th align="center" nowrap="nowrap"><?php echo t(_T('ui_p_curstatuc')); ?></th>
       <th align="center" nowrap="nowrap" width=20%><?php echo t(_T('ui_g_operation')); ?></th>
     </tr>
     <?php $i = 0; foreach($rowset as $row): $css_class = $i % 2 ? 'even' : 'odd'; $rowid = array('id' => $row[$pk]); ?>
     <tr>
      <td align="center" nowrap="nowrap"><?php echo $row[$pk]; ?></td>
-     <td align="left" nowrap="nowrap"><?php echo h($row['title']); ?></td>
+     <td align="left" nowrap="nowrap"><?php echo $this->_formatText($row['introduction']); ?></td>
+     <td align="center" nowrap="nowrap"><?php echo h($row['status']); ?></td>
      <td align="center" nowrap="nowrap">
 	 <a href="<?php echo $this->_url('edit', $rowid); ?>" ><?php echo t(_T('ui_g_operation_edit')); ?></a>&nbsp;/&nbsp;<a href="<?php echo $this->_url('delete', $rowid); ?>" ><?php echo t(_T('ui_g_operation_remove')); ?></a></td>
     </tr>

@@ -24,7 +24,7 @@ return array(
     'ui_g_operation' => '操作',
     'ui_g_operation_edit' => '编辑',
     'ui_g_operation_remove' => '删除',
-    'ui_g_create' => ' 创 建 ',
+    'ui_g_save' => ' 保 存 ',
     
     'ui_p_jump_page' => '第 %u 页',
     'ui_p_page_info' => '共有信息 <strong>%u</strong> 条，符合检索条件的共有 <strong>%u</strong> 条记录，分为 <strong>%u</strong> 页显示，当前查看的是第 <strong>%u</strong> 页',
@@ -38,7 +38,13 @@ return array(
     'ui_t_team_flame' => 'Flame Team 成员照',
     'ui_t_team_members' => '请查看成员介绍，获取成员详细信息',
     
+    'ui_plist_title' => '项目列表',
+    'ui_p_edit' => '项目编辑',
+    'ui_p_name' => '项目名称',
+    'ui_p_introduction' => '项目简介',
+    'ui_p_curstatuc' => '当前状态',
     'ui_p_status' => '状 态：',
+    'ui_p_form_validation' => '请输入项目相关信息。',
     
     'ui_a_connection' => '联系方式',
     'ui_a_address' => '地址：上海市漕河泾开发区桂平路481号18号楼3楼东侧',
@@ -65,6 +71,7 @@ return array(
     'ui_clist_title' => '主题',
     'ui_c_body' => '内容：',
     'ui_c_success_post' => '信息发布成功！',
+    'ui_c_form_validation' => '请输入相应内容。',
     
     'ui_m_addmember' => '添加成员',
     'ui_m_editmember' => '编辑成员',

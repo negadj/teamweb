@@ -14,9 +14,9 @@ function fnOnBack() {
 
 function fnOnSubmit(form) {
 	form.Save.disabled = true;
-	if (form.title.value == '' || form.body.value == '')
+	if (form.name.value == '' || form.introduction.value == '' || form.status.value == '')
 	{
-		alert('<?php echo h(_T('ui_c_form_validation')); ?>');
+		alert('<?php echo h(_T('ui_p_form_validation')); ?>');
 		form.Save.disabled = false;
 		return false;
 	}
@@ -29,21 +29,25 @@ function fnOnSubmit(form) {
 </head>
 <body>
 <div id="content">
-  <h3><?php echo h(_T('ui_c_post')); ?></h3>
+  <h3><?php echo h(_T('ui_p_edit')); ?></h3>
   <br />
   <form action="<?php echo $this->_url('save'); ?>" method="post" name="form1" id="form1" onsubmit="return fnOnSubmit(this);">
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_c_title')); ?></strong><br />
-    <?php html_textbox('title', $post['title'], 80, 120); ?>
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_p_name')); ?></strong><br />
+    <?php html_textbox('name', $project['name'], 80, 120); ?>
 	<br />
 	<br />
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_c_body')); ?></strong><br />
-    <?php html_textarea('body', $post['body'], 60, 10); ?>
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_p_introduction')); ?></strong><br />
+    <?php html_textarea('introduction', $project['introduction'], 60, 10); ?>
+	<br />
+	<br />
+	<span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_p_status')); ?></strong><br />
+    <?php html_textbox('status', $project['status'], 80, 120); ?>
 	<br />
     <br />
     <input name="Save" class="btn" type="submit" id="Save" value="<?php echo h(_T('ui_g_submit')); ?>" />
 	&nbsp;&nbsp;
     <input name="Cancel" class="btn" type="button" id="Cancel" value="<?php echo h(_T('ui_g_cancel')); ?>" onclick="fnOnBack();" />
-    <input name="post_id" type="hidden" id="post_id" value="<?php echo $post['post_id']; ?>" />
+    <input name="project_id" type="hidden" id="project_id" value="<?php echo $project['project_id']; ?>" />
   </form>
 </div>
 </body>

@@ -5,31 +5,31 @@ FLEA::loadClass('Controller_ZobBase');
 // }}}
 
 /**
- * 定义 Controller_ZobPost 类， 实现贴吧信息的显示
+ * 定义 Controller_ZobProject 类， 实现贴吧信息的显示
  *
  * @package TeamWeb
  * @subpackage Controller
  * @author  Zhou Yuhui (xuchangyuhui@sohu.com)
  * @version 1.0, 2008-11-24
  */
-class Controller_ZobPost extends Controller_ZobBase
+class Controller_ZobProject extends Controller_ZobBase
 {
     /**
-     * Model_Posts 对象
+     * Model_Projects 对象
      *
-     * @var Model_Posts
+     * @var Model_Projects
      */
-    var $_modelPosts;
+    var $_modelProjects;
 
     /**
      * 构造函数
      *
-     * @return Controller_Post
+     * @return Controller_ZobProject
      */
-    function Controller_ZobPost()
+    function Controller_ZobProject()
     {
         parent::Controller_ZobBase();
-        $this->_modelPosts =& FLEA::getSingleton('Model_Posts');
+        $this->_modelProjects =& FLEA::getSingleton('Model_Projects');
     }
 
     /**
@@ -39,13 +39,13 @@ class Controller_ZobPost extends Controller_ZobBase
     {
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 0;
         FLEA::loadClass('FLEA_Helper_Pager');
-        $table =& $this->_modelPosts->getTable();
-        $pager =& new FLEA_Helper_Pager($table, $page, 20, null, 'post_id DESC');
+        $table =& $this->_modelProjects->getTable();
+        $pager =& new FLEA_Helper_Pager($table, $page, 20, null, 'project_id DESC');
         $pk = $table->primaryKey;
         $rowset = $pager->findAll();
 
         $this->_setBack();
-        include(APP_DIR . '/ZobPostsList.php');
+        include(APP_DIR . '/ZobProjectsList.php');
     }
 
     /**
@@ -53,10 +53,10 @@ class Controller_ZobPost extends Controller_ZobBase
      */
     function actionAdd()
     {
-        $table =& $this->_modelPosts->getTable();
-        $post = $this->_prepareData($table->meta);
+        $table =& $this->_modelProjects->getTable();
+        $project = $this->_prepareData($table->meta);
 
-        $this->_editComment($post);
+        $this->_editProject($project);
     }
     
     /**
@@ -65,7 +65,7 @@ class Controller_ZobPost extends Controller_ZobBase
      * @return
      */
     function actionDelete() {
-        $this->_modelPosts->removePost($_GET['id']);
+        $this->_modelProjects->removeProject($_GET['id']);
         $this->_goBack();
     }
 
@@ -75,17 +75,17 @@ class Controller_ZobPost extends Controller_ZobBase
      * @return
      */
     function actionEdit() {        
-        $post = & $this->_modelPosts->getPost($_GET['id'], true);
+        $post = & $this->_modelProjects->getProject($_GET['id'], true);
         
-        $this->_editComment($post, 'save');
+        $this->_editProject($project);
     }
     
     /**
      * 显示帖子编辑页
      */
-    function _editComment($post, $errorMessage = '') {
+    function _editProject($project, $errorMessage = '') {
         
-        include(APP_DIR . '/ZobPostAdd.php');
+        include(APP_DIR . '/ZobProjectAdd.php');
     }
 
     /**
@@ -93,17 +93,12 @@ class Controller_ZobPost extends Controller_ZobBase
      */
     function actionSave()
     {
-        $post = array(
-            'post_id'   => $_POST['post_id'],
-            'title'     => $_POST['title'],
-            'body'      => strip_tags($_POST['body']),
-        );
         __TRY();
-        $this->_modelPosts->savePost($post);
+        $this->_modelProjects->saveProject($_POST);
 
         $ex = __CATCH();
         if (__IS_EXCEPTION($ex)) {
-            return $this->_editComment($post, $ex->getMessage());
+            return $this->_editProject($post, $ex->getMessage());
         }
         js_alert(_T('ui_c_success_post'), '', $this->_url('index'));
     }
@@ -115,7 +110,7 @@ class Controller_ZobPost extends Controller_ZobBase
      *
      * @return string
      */
-    function _formatPost($body)
+    function _formatText($body)
     {
         require_once APP_DIR . '/Helper/bbcode.php';
         return bbencode_all($body, 'post');
