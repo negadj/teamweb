@@ -9,7 +9,7 @@
   <frame src="<?php echo url('ZobAdmin', 'topnav'); ?>" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
   <frameset cols="180,*" frameborder="no" border="0" framespacing="0">
     <frame src="<?php echo url('ZobAdmin', 'sidebar'); ?>" name="leftFrame" scrolling="Yes" noresize="noresize" id="leftFrame" title="leftFrame" />
-    <frame src="<?php echo url('ZobMembers', 'index'); ?>" name="mainFrame" id="mainFrame" title="mainFrame" />
+    <frame src="<?php echo url('ZobPost', 'add'); ?>" name="mainFrame" id="mainFrame" title="mainFrame" />
   </frameset>
 </frameset>
 <noframes>

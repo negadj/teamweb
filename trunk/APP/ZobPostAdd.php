@@ -30,24 +30,20 @@ function fnOnSubmit(form) {
 <body>
 <div id="content">
   <h3><?php echo h(_T('ui_c_post')); ?></h3>
-  <div class="description"><?php echo t(_T('ui_c_post_description')); ?></div>
   <br />
-  <p class="error-msg"><?php echo $errorMessage; ?></p>
   <form action="<?php echo $this->_url('save'); ?>" method="post" name="form1" id="form1" onsubmit="return fnOnSubmit(this);">
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_c_title')); ?>:</strong><br />
-    <?php html_textbox('Title', $comment['Title'], 80, 120); ?>
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_c_title')); ?></strong><br />
+    <?php html_textbox('title', $post['title'], 80, 120); ?>
 	<br />
 	<br />
-    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_c_body')); ?>:</strong><br />
-    <?php html_textarea('Body', $comment['Body'], 60, 10); ?>
+    <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_c_body')); ?></strong><br />
+    <?php html_textarea('body', $post['body'], 60, 10); ?>
 	<br />
     <br />
-    <input name="Save" type="submit" id="Save" value="<?php echo h(_T('ui_g_submit')); ?>" />
+    <input name="Save" class="btn" type="submit" id="Save" value="<?php echo h(_T('ui_g_submit')); ?>" />
 	&nbsp;&nbsp;
-    <input name="Cancel" type="button" id="Cancel" value="<?php echo h(_T('ui_g_cancel')); ?>" onclick="fnOnBack();" />
-    <input name="<?php echo $pk; ?>" type="hidden" id="<?php echo $pk; ?>" value="<?php echo $comment[$pk]; ?>" />
-    <input name="AuthorID" type="hidden" id="AuthorID" value="<?php echo $comment['AuthorID']; ?>" />
-    <!-- <input name="Created" type="hidden" id="Created" value="<?php echo $comment['Created']; ?>" /> -->
+    <input name="Cancel" class="btn" type="button" id="Cancel" value="<?php echo h(_T('ui_g_cancel')); ?>" onclick="fnOnBack();" />
+    <input name="<?php echo $pk; ?>" type="hidden" id="<?php echo $pk; ?>" value="<?php echo $post[$pk]; ?>" />
   </form>
 </div>
 </body>

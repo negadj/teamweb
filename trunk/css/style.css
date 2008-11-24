@@ -1,5 +1,5 @@
 ﻿body {
-    margin: 0px 100px;
+    margin: 0px;
 	font-size: 13px;
 	font-family: Verdana, Arial;
 	background: #fff;
@@ -164,29 +164,12 @@
     width: 86px;
 }
 
-/////////////////////////////
-#topnav {
-   background: url(../images/logo.bmp) repeat-x;
-   height: 64px;
-   clear: both;
-}
-
-#topnav h3 {
-   background: url(../images/logo.bmp) no-repeat;
-   width: 220px;
-   margin: 0px;
-   padding: 46px 20px 0px 0px;
-   font-size: 12px;
-   text-align: right;
-   color: #ADB662;
-   float: left;
-}
-
 #topnav_menu {
-   font-size: 14px;
-   font-weight: bold;
-   color: White;
-   padding-top: 15px;
+    background-color:#ADB662;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    padding-top: 30px;
 }
 
 #topnav a {
@@ -247,13 +230,53 @@
    text-decoration: underline;
 }
 
-#copyright {
-   clear: both;
-	background: #FFFFFF;
-	font-size: 12px;
-	color: #666666;
-	border-top: 1px dotted #CCC;
-	border-bottom: 1px dotted #CCC;
-	margin: 50px 0px 0px 0px;
-	padding-left: 30px;
+#content {
+    float: left;
+    margin: 2px 10px 10px 10px;
+    padding: 0px;
+    font-size: 12px;
+    text-align: left;
+    color: Black;
+    width: 95%;
+}
+
+#content h3 {
+   font-size: 16px;
+   font-weight: bold;
+   color: #006600;
+   padding: 8px 0px 8px 0px;
+   margin: 0px;
+}
+
+#content table.form {
+   border-top: 1px solid #cccccc;
+   border-left: 1px solid #cccccc;
+   border-right: 1px solid #666666;
+   border-bottom: 1px solid #666666;
+   background-color: #eeeeee;
+}
+
+#content table.form td {
+   padding: 2px 2px 2px 8px;
+   font-size: 12px;
+   color: Black;
+   border-bottom: 1px solid #eeeeee;
+}
+
+.btn {
+	padding-right: 5px; 
+	padding-left: 5px; 
+	padding-bottom: 3px; 
+	padding-top: 3px;
+	
+	border-right: #6a6a6a 1px solid; 
+	border-top: #6a6a6a 1px solid; 
+	border-left: #6a6a6a 1px solid;
+	border-bottom: #6a6a6a 1px solid; 
+	
+    font-size: 10px; 
+    background: #3b5998;
+	cursor: pointer; 
+	color: #fff; 
+	height: 23px
 }
