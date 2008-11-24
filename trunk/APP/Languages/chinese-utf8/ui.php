@@ -41,4 +41,14 @@ return array(
     'ui_l_admin' => '管理员：',
     'ui_l_password' => ' 密 码 ：',
     'ui_l_form_validation' => '请输入用户名和密码。',
+    
+    'ui_a_logout' => '退出',
+    
+    'ui_m_post_menu' => '新闻列表',
+    'ui_m_add_post_menu' => '添加新闻',
+    'ui_m_projects_menu' => '项目列表',
+    'ui_m_add_project_menu' => '添加项目',
+    'ui_m_members_menu' => '成员列表',
+    'ui_m_add_member_menu' => '添加成员',
+    'ui_m_manage_catalog' => 'Team管理',
 );

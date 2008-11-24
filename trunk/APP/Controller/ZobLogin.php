@@ -59,6 +59,16 @@ class Controller_ZobLogin extends FLEA_Controller_Action
                 break;
             }
             
+            /**
+             * 登录成功，通过 RBAC 保存用户信息和角色
+             */
+            $data = array();
+            $data['ADMIN'] = $user['LoginName'];
+            $rbac =& FLEA::getSingleton('FLEA_Rbac');
+            
+            /* @var $rbac FLEA_Rbac */
+            $rbac->setUser($data, array('SYSTERM_ADMIN'));
+            
             //重定向
             redirect(url('ZobAdmin'));
         }
