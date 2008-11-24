@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="topnav">
-  <h3></h3>
+  <div style="float:left;"><img src="images/logo.bmp" height=48/></div>
   <div id="topnav_menu"> 
     <?php echo h(_T('ui_l_admin')); ?>&nbsp;[<?php echo $user['ADMIN']; ?>]
     &nbsp;&nbsp;

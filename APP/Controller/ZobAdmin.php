@@ -13,14 +13,7 @@ FLEA::loadClass('Controller_ZobBase');
  * @version 1.0, 2008-09-19
  */
 class Controller_ZobAdmin extends Controller_ZobBase
-{    
-    /**
-     * Model_Posts 对象
-     *
-     * @var Model_Posts
-     */
-    var $_modelPosts;
-    
+{
     /**
      * 构造函数
      *
@@ -28,7 +21,6 @@ class Controller_ZobAdmin extends Controller_ZobBase
      */
     function Controller_ZobAdmin() {
         parent::Controller_ZobBase();
-        $this->_modelPosts =& FLEA::getSingleton('Model_Posts');
     }
     /**
      * 显示 frames 页面
@@ -59,16 +51,4 @@ class Controller_ZobAdmin extends Controller_ZobBase
         include(APP_DIR . '/ZobSidebar.php');
     }
 
-    /**
-     * 显示欢迎信息
-     */
-    function actionWelcome() {
-        // 获取最新的10个帖子信息
-        $table =& $this->_modelPosts->getTable();
-        $postset = $table->findAll(null, "CommentID DESC", 10);
-        $postpk = $table->primaryKey;
-        
-        $this->_setBack();
-        include(APP_DIR . '/ZobWelcome.php');
-    }
 }

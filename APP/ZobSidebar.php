@@ -4,27 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo RESPONSE_CHARSET; ?>" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<SCRIPT type="text/javascript">
-    function toggleBlock(id){
-        var menudiv = document.getElementById(id);
-    	var state = menudiv.style.display;
-    	
-    	if(state == "none")
-    	{
-        	menudiv.style.display = "block";
-        	document.getElementById(id + '_toggle').className = 'win_block';
-    	}
-    	else if(state == "block" || state == "")
-    	{
-        	menudiv.style.display = "none";
-        	document.getElementById(id + '_toggle').className = 'win_none';
-    	}
-    }
-</SCRIPT>
 </head>
 <body>
 <div id="sidebar">
-  <!-- BEGIN sidebar -->
+<!-- BEGIN sidebar -->
 <?php
 $defaultAction = FLEA::getAppInf('defaultAction');
 $id = 0;
@@ -39,10 +22,7 @@ foreach ($catalog as $cat) {
 	}
 
 	if ($out == '') { continue; }
-	$updown = "<a href=\"javascript:void(0);\" id=\"menudiv_{$id}_toggle\" class=\"win_block\" onclick=\"toggleBlock('menudiv_{$id}')\" ></a>";
-	$out =  "<h3>" . $updown . "&nbsp;{$cat[0]}</h3><div id=\"menudiv_{$id}\" ><ul>" . $out . "</ul></div>";
-	//$out = "<h3><img src=\"images/cat-expanded.gif\" border=\"0\" />&nbsp;{$cat[0]}</h3>"
-	//        . $updown . "<div><ul>" . $out . "</ul></div>";
+	$out =  "<h3>&nbsp;{$cat[0]}</h3><div id=\"menudiv_{$id}\" ><ul>" . $out . "</ul></div>";
 	echo $out;
 	$id++;
 }

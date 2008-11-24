@@ -63,7 +63,7 @@ class Controller_ZobLogin extends FLEA_Controller_Action
              * 登录成功，通过 RBAC 保存用户信息和角色
              */
             $data = array();
-            $data['ADMIN'] = $user['LoginName'];
+            $data['ADMIN'] = $user['username'];
             $rbac =& FLEA::getSingleton('FLEA_Rbac');
             
             /* @var $rbac FLEA_Rbac */
