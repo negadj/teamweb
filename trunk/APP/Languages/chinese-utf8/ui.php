@@ -33,6 +33,12 @@ return array(
     
     'ui_a_connection' => '联系方式',
     'ui_a_address' => '地址：上海市漕河泾开发区桂平路481号18号楼3楼东侧',
-    'ui_a_phone' => '电话：021-',
+    'ui_a_phone' => '电话：021-54264220',
     
+    'ui_g_admin' => '管理',
+    'ui_g_login' => '登陆',
+    'ui_l_login' => 'Team Web管理页面',
+    'ui_l_admin' => '管理员：',
+    'ui_l_password' => ' 密 码 ：',
+    'ui_l_form_validation' => '请输入用户名和密码。',
 );
