@@ -17,7 +17,7 @@
                   if($j % 3 != 0) $margintop = -75; ?>
             <div class="headerimg" 
                  style="margin-left:<?php echo $marginleft; ?>px; margin-top: <?php echo $margintop; ?>px;">
-                <img height=55 src="upload/defaulthead.jpg" width=55 border=0></div>
+                <img height=55 src="<?php echo FLEA::getAppInf('uploadRoot') . '/' . $member['headimage']; ?>" width=55 border=0></div>
             <div style="margin-left:<?php echo $marginleft + 90; ?>px; margin-top: -80px;">
                 <p><a href="<?php echo url('ZobMember', 'show', array('id' => $rowset[$j]['member_id'])); ?>">
                 <?php echo $rowset[$j]['name']; ?></a></p></div><br />
