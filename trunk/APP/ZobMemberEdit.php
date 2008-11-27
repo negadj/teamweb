@@ -40,7 +40,7 @@ function fnOnSubmit(form) {
 <div id="content">
   <h3><?php if($member['member_id'] == 0) {echo h(_T('ui_m_addmember'));} else {echo h(_T('ui_m_editmember'));} ?></h3>
   <form action="<?php echo $this->_url('save'); ?>" method="post" name="form1" id="form1" 
-        onsubmit="return fnOnSubmit(this);">
+        enctype="multipart/form-data"  onsubmit="return fnOnSubmit(this);">
     <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_name')); ?>:</strong>
     <?php html_textbox('name', $member['name'], 30, 24); ?>
 	<br />
@@ -55,6 +55,16 @@ function fnOnSubmit(form) {
 	<br />
     <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_experience')); ?>:</strong>
     <?php html_textbox('experiences', $member['experiences'], 30, 24); ?>
+	<br />
+	<br />
+	<span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_headimg')); ?>:</strong>
+	<input name="headimg" type="file" size="60" /><br />
+	<span style="color: red"><?php echo t(_T('ui_m_headimg_note')); ?></span>
+	<br />
+	<br />
+	<span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_photo')); ?>:</strong>
+	<input name="photo" type="file" size="60" /><br />
+	<span style="color: red"><?php echo t(_T('ui_m_photo_note')); ?></span>
 	<br />
 	<br />
     <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_hobby')); ?></strong><br />

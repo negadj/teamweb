@@ -86,4 +86,8 @@ return array(
     'ui_m_female' => '女',
     'ui_m_member_success' => '成功保存成员信息。',
     'ui_mlist_title' => '成员列表',
+    'ui_m_headimg' => '头像',
+    'ui_m_headimg_note' => "  宽度110像素，高度110像素，新的头像图片会替代现有的，超过大小的文件会自动裁减。",
+    'ui_m_photo' => '照片',
+    'ui_m_photo_note' => "  宽度768像素，高度1024像素，新的照片会替代现有的，超过大小的文件会自动裁减。",
 );
