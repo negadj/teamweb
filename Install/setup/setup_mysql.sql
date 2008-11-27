@@ -20,7 +20,7 @@ CREATE TABLE `members` (
   `introduction` text,
   `experiences` decimal(3,1) NOT NULL,
   `headimage` varchar(80) NOT NULL default 'defaulthead.jpg',
-  `image` varchar(80) NULL,
+  `photo` varchar(80) NULL,
   PRIMARY KEY  (`member_id`)
 ) ENGINE=MyISAM;
 

@@ -67,8 +67,13 @@ class Model_Members
         if (isset($member[$memberkey]) && (int)$member[$memberkey] == 0) {
             unset($member[$memberkey]);
         }
+        
+        $memberid = $this->_tbMembers->save($member);
+        
+        $this->_uploadPicture($memberid, 'headimg', 'headimage');
+        $this->_uploadPicture($memberid, 'photo', 'photo');
 
-        return $this->_tbMembers->save($member);
+        return;
     }
 
     /**
@@ -86,47 +91,107 @@ class Model_Members
             __THROW(new Exception_DataNotFound($memberId));
             return false;
         }
-        // 删除该用户的头像图片
+        
+        // 删除该用户的图片
         $uploadDir = FLEA::getAppInf('uploadDir') . DS;
-        if ($member['HeadImage'] != '' && $member['HeadImage'] != 'defaulthead.jpg') {
-            unlink($uploadDir . $member['HeadImage']);
+        if ($member['headimg'] != '' && $member['headimg'] != 'defaulthead.jpg') {
+            unlink($uploadDir . $member['headimg']);
+        }
+        if ($member['photo'] != '') {
+            unlink($uploadDir . $member['photo']);
         }
 
         return $this->_tbMembers->removeByPkv($memberId);
+    }
+    
+    /**
+     * 处理图片上传
+     */
+    function _uploadPicture($memberid, $imgfile, $pictureType) {
+        $uploader =& FLEA::getSingleton('FLEA_Helper_FileUploader');
+        /* @var $uploader FLEA_Helper_FileUploader */
+
+        // 检查上传文件是否存在
+        if (!$uploader->isFileExist($imgfile)) {
+            $errorMessage = _T('ui_p_upload_failed');
+            return;
+        }
+
+        // 检查文件扩展名是否是允许上传的类型
+        $file =& $uploader->getFile($imgfile);
+        if (!$file->check(FLEA::getAppInf('imageFileExts'))) {
+            $errorMessage =_T('ui_p_invalid_filetype');
+            return;
+        }
+        
+        $member = $this->getMember($memberid, false);
+        if (!$member) {
+            FLEA::loadClass('Exception_DataNotFound');
+            __THROW(new Exception_DataNotFound($memberid));
+            return false;
+        }
+
+        // 上传图像
+        if ($pictureType == 'headimage') {
+            $this->_uploadThumb($member, $file);
+        } else {
+            $this->_uploadPhoto($member, $file);
+        }
+        $ex = __CATCH();
+        if (__IS_EXCEPTION($ex)) {
+            $errorMessage = $ex->getMessage();
+            return;
+        }
     }
 
 
     /**
      * 上传成员头像图片
      *
-     * @param int $memberId
      * @param FLEA_Helper_UploadFile $file
      *
      * @return boolean
      */
-    function uploadThumb($memberId, & $file) {
-        $memberId = (int)$memberId;
-        $member = $this->getMember($memberId, false);
-        if (!$member) {
-            FLEA::loadClass('Exception_DataNotFound');
-            __THROW(new Exception_DataNotFound($memberId));
-            return false;
-        }
-
+    function _uploadThumb($member, & $file) {
         // 将缩略图文件裁减为指定大小，并保存起来
         FLEA::loadClass('FLEA_Helper_Image');
         $image =& FLEA_Helper_Image::createFromFile($file->getTmpName(), $file->getExt());
         $image->crop(FLEA::getAppInf('thumbWidth'), FLEA::getAppInf('thumbHeight'));
-        $filename = $memberId . '-thumb-t' . time() . '.jpg';
+        $filename = $member['member_id'] . '-thumb-t' . time() . '.jpg';
+        $image->saveAsJpeg(FLEA::getAppInf('uploadDir') . DS . $filename);
+        $image->destory();
+        
+         // 更新数据库
+        if ($member['headimage'] != '' && $member['headimage'] != 'defaulthead.jpg') {
+            unlink(FLEA::getAppInf('uploadDir') . DS . $member['headimage']);
+        }
+
+        $member['headimage'] = $filename;
+        return $this->_tbMembers->update($member);
+    }
+    
+    /**
+     * 上传成员照片
+     *
+     * @param FLEA_Helper_UploadFile $file
+     *
+     * @return boolean
+     */
+    function _uploadPhoto($member, & $file) {
+        // 将照片文件裁减为指定大小，并保存起来
+        FLEA::loadClass('FLEA_Helper_Image');
+        $image =& FLEA_Helper_Image::createFromFile($file->getTmpName(), $file->getExt());
+        $image->crop(FLEA::getAppInf('photoWidth'), FLEA::getAppInf('photoHeight'));
+        $filename = $member['member_id'] . '-photo-t' . time() . '.jpg';
         $image->saveAsJpeg(FLEA::getAppInf('uploadDir') . DS . $filename);
         $image->destory();
 
         // 更新数据库
-        if ($member['HeadImage'] != '' && $member['HeadImage'] != 'defaulthead.jpg') {
-            unlink(FLEA::getAppInf('uploadDir') . DS . $member['HeadImage']);
+        if ($member['photo'] != '') {
+            unlink(FLEA::getAppInf('uploadDir') . DS . $member['photo']);
         }
 
-        $member['HeadImage'] = $filename;
+        $member['photo'] = $filename;
         return $this->_tbMembers->update($member);
     }
 

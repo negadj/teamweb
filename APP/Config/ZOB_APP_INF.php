@@ -67,9 +67,15 @@ return array(
     /**
      * 缩略图的大小、可用扩展名
      */
-    'thumbWidth' => 166,
-    'thumbHeight' => 166,
-    'thumbFileExts' => 'gif,png,jpg,jpeg',
+    'thumbWidth' => 110,
+    'thumbHeight' => 110,
+    'imageFileExts' => 'gif,png,jpg,jpeg',
+    
+     /**
+     * 照片的大小、可用扩展名
+     */
+    'photoWidth' => 768,
+    'photoHeight' => 1024,
 
     /**
      * 商品大图片的最大文件尺寸和可用扩展名
