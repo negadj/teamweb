@@ -119,6 +119,19 @@ class Controller_ZobMember extends Controller_ZobBase
 
         js_alert(_T('ui_m_member_success'), '', $this->_url('index'));
     }
+    
+    /**
+     * 使用 BBCode 格式化文本
+     *
+     * @param string $body
+     *
+     * @return string
+     */
+    function _formatText($body)
+    {
+        require_once APP_DIR . '/Helper/bbcode.php';
+        return bbencode_all($body, 'post');
+    }
 }
 
 ?>
