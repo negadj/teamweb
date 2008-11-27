@@ -64,6 +64,7 @@ class Model_Members
      */
     function saveMember($member) {
         $memberkey = $this->_tbMembers->primaryKey;
+        echo $member[$memberkey];
         if (isset($member[$memberkey]) && (int)$member[$memberkey] == 0) {
             unset($member[$memberkey]);
         }

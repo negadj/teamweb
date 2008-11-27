@@ -14,18 +14,9 @@ function fnOnBack() {
 
 function fnOnSubmit(form) {
 	form.Save.disabled = true;
-	if (form.MemberID.value == '' ||
-	    form.LoginName.value == '' ||
-	    form.Email.value == '')
+	if (form.name.value == '')
 	{
-		alert('<?php echo h(_T('ui_o_form_validation')); ?>');
-		form.Save.disabled = false;
-		return false;
-	}
-	
-	var el = form['roles[]'];
-	if (el.selectedIndex == -1) {
-		alert('<?php echo h(_T('ui_o_form_validation')); ?>');
+		alert('<?php echo h(_T('ui_m_form_validation')); ?>');
 		form.Save.disabled = false;
 		return false;
 	}
@@ -39,6 +30,7 @@ function fnOnSubmit(form) {
 <body>
 <div id="content">
   <h3><?php if($member['member_id'] == 0) {echo h(_T('ui_m_addmember'));} else {echo h(_T('ui_m_editmember'));} ?></h3>
+  <p class="error-msg"><?php echo $errorMessage; ?></p>
   <form action="<?php echo $this->_url('save'); ?>" method="post" name="form1" id="form1" 
         enctype="multipart/form-data"  onsubmit="return fnOnSubmit(this);">
     <span class="error-msg">*&nbsp;</span><strong><?php echo h(_T('ui_m_name')); ?>:</strong>
