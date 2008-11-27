@@ -18,7 +18,7 @@ CREATE TABLE `members` (
   `skills` text,
   `university` varchar(40) NOT NULL default ' ',
   `introduction` text,
-  `experiences` decimal(3,1) NOT NULL,
+  `experiences` decimal(3,1) NOT NULL default '0',
   `headimage` varchar(80) NOT NULL default 'defaulthead.jpg',
   `photo` varchar(80) NULL,
   PRIMARY KEY  (`member_id`)
