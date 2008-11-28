@@ -44,6 +44,7 @@ class Controller_ZobMember extends Controller_ZobBase
             $errorMessage = $ex->getMessage();
         }
         
+        $this->_setBack();
         include(APP_DIR . '/ZobMemberShow.php');
     }
     
@@ -59,7 +60,6 @@ class Controller_ZobMember extends Controller_ZobBase
         $rowset = $pager->findAll();
 
         $this->_setBack();
-        
         include(APP_DIR . '/ZobMembersList.php');
     }
     
@@ -131,6 +131,16 @@ class Controller_ZobMember extends Controller_ZobBase
     {
         require_once APP_DIR . '/Helper/bbcode.php';
         return bbencode_all($body, 'post');
+    }
+    
+    /**
+     * 设置当前界面语言
+     */
+    function actionChangeLang() {
+        $_SESSION['LANG'] = $_GET['lang'];
+        
+        $this->_goBack();
+        //redirect($this->_url());
     }
 }
 
