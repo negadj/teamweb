@@ -280,3 +280,10 @@
 	color: #fff; 
 	height: 23px
 }
+
+.memberblock {
+   padding: 2px 2px 2px 8px;
+   font-size: 13px;
+   color: darkblue;
+   border: 1px solid #darkblue;
+}

@@ -5,7 +5,7 @@
           border="0" width=300 />
   </div>
   <div style="float:right; width:55%">
-    <table cellSpacing=0 cellPadding=0 border=0>
+    <table class="memberblock">
       <tr>
         <td class=MemberInfo><?php echo h(_T('ui_m_name')); ?>:</td>
         <td ><?php echo $member['name']; ?></td></tr>

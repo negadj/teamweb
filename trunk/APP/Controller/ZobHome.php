@@ -113,7 +113,9 @@ class Controller_ZobHome extends Controller_ZobBase
      */
     function actionChangeLang() {
         $_SESSION['LANG'] = $_GET['lang'];
-        redirect($this->_url());
+        
+        $this->_goBack();
+        //redirect($this->_url());
     }
     
     /**
