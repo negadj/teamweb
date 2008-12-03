@@ -64,12 +64,18 @@ class Model_Members
      */
     function saveMember($member) {
         $memberkey = $this->_tbMembers->primaryKey;
-        echo $member[$memberkey];
+        //echo $member[$memberkey];
         if (isset($member[$memberkey]) && (int)$member[$memberkey] == 0) {
             unset($member[$memberkey]);
         }
+        //echo $member[$memberkey];
         
         $memberid = $this->_tbMembers->save($member);
+        
+        if(isset($member[$memberkey]) && (int)$member[$memberkey] != 0) {
+            $memberid = $member[$memberkey];
+        }
+        //echo $memberid;
         
         $this->_uploadPicture($memberid, 'headimg', 'headimage');
         $this->_uploadPicture($memberid, 'photo', 'photo');
