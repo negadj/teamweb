@@ -284,6 +284,26 @@
 .memberblock {
    padding: 2px 2px 2px 8px;
    font-size: 13px;
-   color: darkblue;
-   border: 1px solid #darkblue;
+}
+
+.membername {
+    color:#000000; 
+    font-weight:bold; 
+    font-size:14px
+}
+
+.itemseperator {
+    color:lightblue; 
+    height:1px;
+    width:300px;
+}
+
+.memberitem {
+    text-align: right;
+    color:#808080;
+    padding-right:6px;
+}
+
+.memberinfo {
+    color:#336699;
 }
